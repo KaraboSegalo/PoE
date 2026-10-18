@@ -100,7 +100,6 @@ public class Message {
 
     public String storeMessages() {
         try {
-            // Save in the project's root folder, alongside pom.xml.
             Path projectDirectory = Path.of(
                     System.getProperty("user.dir")
             );

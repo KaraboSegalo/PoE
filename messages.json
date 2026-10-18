@@ -2,3 +2,6 @@
 {"messageNumber":1,"recipient":"+27718693002","messageID":"9366941058","messageHash":"93:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
 {"messageNumber":1,"recipient":"+27718693002","messageID":"3143530687","messageHash":"31:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
 {"messageNumber":1,"recipient":"+27718693002","messageID":"5849192244","messageHash":"58:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
+{"messageNumber":1,"recipient":"+27718693002","messageID":"5374724021","messageHash":"53:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
+{"messageNumber":1,"recipient":"+27718693002","messageID":"7425641545","messageHash":"74:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
+{"messageNumber":3,"recipient":"+27718693002","messageID":"9064231724","messageHash":"90:3:QUICKCHATJSON","message":"QuickChat stores this message as JSON.","status":"Stored"}
