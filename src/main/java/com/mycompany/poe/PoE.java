@@ -12,42 +12,49 @@ public class PoE {
 
         System.out.println("Welcome to QuickChat");
 
-        // Registration
+        // Register the user.
         System.out.print("Enter your first name: ");
-        String firstName = scanner.nextLine();
+        String firstName = scanner.nextLine().trim();
 
         System.out.print("Enter your last name: ");
-        String lastName = scanner.nextLine();
+        String lastName = scanner.nextLine().trim();
 
         System.out.print("Enter your username: ");
-        String username = scanner.nextLine();
+        String username = scanner.nextLine().trim();
 
         System.out.print("Enter your password: ");
         String password = scanner.nextLine();
 
         System.out.print("Enter your South African cell phone number: ");
-        String cellPhoneNumber = scanner.nextLine();
+        String cellPhoneNumber = scanner.nextLine().trim();
 
         Login login = new Login(
-                firstName, lastName, username, password, cellPhoneNumber
+                firstName,
+                lastName,
+                username,
+                password,
+                cellPhoneNumber
         );
 
         System.out.println(login.registerUser());
 
-        // Login
+        // Log in using the registered credentials.
         System.out.print("Enter your username to login: ");
-        String loginUsername = scanner.nextLine();
+        String loginUsername = scanner.nextLine().trim();
 
         System.out.print("Enter your password to login: ");
         String loginPassword = scanner.nextLine();
 
-        System.out.println(
-                login.returnLoginStatus(loginUsername, loginPassword)
+        String loginStatus = login.returnLoginStatus(
+                loginUsername, loginPassword
         );
 
-        // Only continue if login succeeds.
+        System.out.println(loginStatus);
+
+        // Only continue when login succeeds.
         if (!loginUsername.equals(username)
-                || !loginPassword.equals(password)) {
+                || !loginPassword.equals(password)
+                || !loginStatus.startsWith("Welcome ")) {
             System.out.println("Login failed. QuickChat will close.");
             scanner.close();
             return;
@@ -55,13 +62,13 @@ public class PoE {
 
         System.out.println("\nWelcome, " + firstName + "!");
 
-        // Ask how many messages may be sent.
         int messageLimit = readMessageLimit(scanner);
         int messagesProcessed = 0;
         List<Message> sentMessages = new ArrayList<>();
 
         boolean running = true;
 
+        // Keep displaying the menu until the user chooses Quit.
         while (running) {
             System.out.println("\nQuickChat Menu");
             System.out.println("1) Send Messages");
@@ -80,9 +87,16 @@ public class PoE {
                         break;
                     }
 
-                    while (messagesProcessed < messageLimit) {
+                    // Process the requested number of messages.
+                    for (int i = messagesProcessed;
+                            i < messageLimit; i++) {
+
+                        // The number advances after each processed message.
+                        int messageNumber = messagesProcessed + 1;
+
                         System.out.print(
-                                "Enter recipient number (e.g. +27718693002): "
+                                "Enter recipient number "
+                                + "(e.g. +27718693002): "
                         );
                         String recipient = scanner.nextLine().trim();
 
@@ -90,19 +104,23 @@ public class PoE {
                         String messageText = scanner.nextLine();
 
                         Message message = new Message(
-                                messagesProcessed + 1,
+                                messageNumber,
                                 recipient,
                                 messageText
                         );
 
                         if (!message.checkMessageID()) {
                             System.out.println("Invalid message ID.");
+                            i--;
                             continue;
                         }
 
                         if (!message.checkRecipientCell().equals(
                                 "Cell phone number successfully captured")) {
-                            System.out.println(message.checkRecipientCell());
+                            System.out.println(
+                                    message.checkRecipientCell()
+                            );
+                            i--;
                             continue;
                         }
 
@@ -111,47 +129,83 @@ public class PoE {
                                     "Please enter a message of less than "
                                     + "250 characters"
                             );
+                            i--;
                             continue;
                         }
 
                         System.out.println("\nMessage preview:");
                         System.out.println(message.printMessage());
-                        System.out.println("\nMessage hash: "
-                                + message.createMessageHash());
 
                         System.out.println("\nChoose an action:");
-                        System.out.println("1) Send message");
-                        System.out.println("2) Disregard message");
-                        System.out.println("3) Store message");
+                        System.out.println("1) Send Message");
+                        System.out.println("2) Disregard Message");
+                        System.out.println("3) Store Message to send later");
                         System.out.print("Your choice: ");
 
                         String action = scanner.nextLine().trim();
+                        boolean processed = false;
 
                         switch (action) {
                             case "1":
-                                System.out.println(message.SentMessage());
-                                if ("Sent".equals(message.getMessageStatus())) {
+                                String sendResult = message.SentMessage();
+
+                                if ("Sent".equals(
+                                        message.getMessageStatus())) {
                                     sentMessages.add(message);
+
+                                    System.out.println(
+                                            "Message successfully sent"
+                                    );
+
+                                    // Display details after sending.
+                                    System.out.println(
+                                            message.printMessage()
+                                    );
+
+                                    processed = true;
+                                } else {
+                                    System.out.println(sendResult);
                                 }
-                                messagesProcessed++;
                                 break;
 
                             case "2":
-                                System.out.println(message.disregardMessage());
-                                messagesProcessed++;
+                                message.disregardMessage();
+                                System.out.println(
+                                        "Press 0 to delete the message"
+                                );
+                                processed = true;
                                 break;
 
                             case "3":
-                                System.out.println(message.storeMessages());
-                                messagesProcessed++;
+                                String storeResult = message.storeMessages();
+
+                                if ("Stored".equals(
+                                        message.getMessageStatus())) {
+                                    System.out.println(
+                                            "Message successfully stored"
+                                    );
+                                    System.out.println(storeResult);
+                                    processed = true;
+                                } else {
+                                    System.out.println(storeResult);
+                                }
                                 break;
 
                             default:
                                 System.out.println(
-                                        "Invalid action. Message not processed."
+                                        "Invalid action. Please choose "
+                                        + "1, 2 or 3."
                                 );
                                 break;
                         }
+
+                        if (!processed) {
+                            // Retry without consuming a message slot.
+                            i--;
+                            continue;
+                        }
+
+                        messagesProcessed++;
 
                         if (messagesProcessed >= messageLimit) {
                             break;
@@ -176,7 +230,9 @@ public class PoE {
 
                 case "3":
                     running = false;
-                    System.out.println("Thank you for using QuickChat.");
+                    System.out.println(
+                            "Thank you for using QuickChat."
+                    );
                     break;
 
                 default:
@@ -187,29 +243,39 @@ public class PoE {
             }
         }
 
-        System.out.println("\nTotal messages sent: "
-                + (sentMessages.isEmpty()
+        int totalSent = sentMessages.isEmpty()
                 ? 0
-                : sentMessages.get(0).returnTotalMessages()));
+                : sentMessages.get(0).returnTotalMessages();
+
+        System.out.println("\nTotal messages sent: " + totalSent);
 
         scanner.close();
     }
 
+    // Read a valid non-negative message limit.
     private static int readMessageLimit(Scanner scanner) {
         while (true) {
-            System.out.print("How many messages would you like to process? ");
+            System.out.print(
+                    "How many messages would you like to process? "
+            );
 
             try {
-                int limit = Integer.parseInt(scanner.nextLine().trim());
+                int limit = Integer.parseInt(
+                        scanner.nextLine().trim()
+                );
 
                 if (limit >= 0) {
                     return limit;
                 }
 
-                System.out.println("Please enter zero or a positive number.");
+                System.out.println(
+                        "Please enter zero or a positive number."
+                );
 
             } catch (NumberFormatException e) {
-                System.out.println("Please enter a valid whole number.");
+                System.out.println(
+                        "Please enter a valid whole number."
+                );
             }
         }
     }
