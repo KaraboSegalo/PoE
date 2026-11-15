@@ -1,26 +1,3 @@
-{"messageNumber":1,"recipient":"+27718693002","messageID":"9366941058","messageHash":"93:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"3143530687","messageHash":"31:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"5849192244","messageHash":"58:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"5374724021","messageHash":"53:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"7425641545","messageHash":"74:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":3,"recipient":"+27718693002","messageID":"9064231724","messageHash":"90:3:QUICKCHATJSON","message":"QuickChat stores this message as JSON.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"9913025219","messageHash":"99:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"8868411105","messageHash":"88:1:TESTINGSTORAGE","message":"Testing JSON storage","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"6001898993","messageHash":"60:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"2807857795","messageHash":"28:1:QUICKCHATJSON","message":"QuickChat stores this message as JSON","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"8772325293","messageHash":"87:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"1776656291","messageHash":"17:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"6815179051","messageHash":"68:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"4922443185","messageHash":"49:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"5185452186","messageHash":"51:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"6221240693","messageHash":"62:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"5868411132","messageHash":"58:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"7922996877","messageHash":"79:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
+
 {"messageNumber":1,"recipient":"+27838884567","messageID":"2458740168","messageHash":"24:1:WHERETIME","message":"Where are you ? You are late! I have asked you to be on time","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"5853822311","messageHash":"58:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"8804999888","messageHash":"88:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"7639092775","messageHash":"76:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"5948630030","messageHash":"59:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"3258270993","messageHash":"32:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"5712866212","messageHash":"57:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
-{"messageNumber":1,"recipient":"+27718693002","messageID":"8962793038","messageHash":"89:1:TESTINGSTORAGE","message":"Testing JSON message storage.","status":"Stored"}
+{"messageNumber":1,"recipient":"+27838884567","messageID":"6032461956","messageHash":"60:1:OKYOU","message":"Ok, I am leaving without you","status":"Stored"}
